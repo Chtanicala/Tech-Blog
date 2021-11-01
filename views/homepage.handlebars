@@ -1,0 +1,16 @@
+<!-- Loop over each object in the projects array -->
+{{#each reviews as |review| }}
+<div class="review">
+  <div>
+    <h2>
+      <a href="/review/{{review.id}}">{{review.review_title}}</a>
+    </h2>
+    <p>Posted by {{review.user.username}} on {{format_date review.post_date}}</p>
+  </div>
+  <div>
+    <p>
+      {{review.review_description}}
+    </p>
+  </div>
+</div>
+{{/each}}

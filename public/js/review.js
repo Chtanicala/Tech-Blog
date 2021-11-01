@@ -1,11 +1,10 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#review-name').value.trim();
-    const needed_funding = document.querySelector('#review-funding').value.trim();
-    const description = document.querySelector('#review-desc').value.trim();
+    const review_title = document.querySelector('#review-name').value.trim();
+    const review_description = document.querySelector('#review-desc').value.trim();
   
-    if (eview_title && review_description) {
+    if (review_title && review_description) {
       const response = await fetch(`/api/review`, {
         method: 'POST',
         body: JSON.stringify({ review_title, review_description }),
@@ -15,7 +14,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/review');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to create review');
       }
@@ -31,7 +30,7 @@ const newFormHandler = async (event) => {
       });
   
       if (response.ok) {
-        document.location.replace('/review');
+        document.location.replace('/dashboard');
       } else {
         alert('Failed to delete review');
       }
